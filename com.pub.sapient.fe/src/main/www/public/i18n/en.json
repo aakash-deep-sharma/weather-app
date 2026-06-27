@@ -1,0 +1,32 @@
+{
+  "DASHBOARD": {
+    "TITLE": "Weather Alerts & 3-Day Prediction Dashboard",
+    "TARGET_CITY": "Target Destination City",
+    "SEARCH_PLACEHOLDER": "e.g., London, Pune, New York",
+    "ANALYZE_BTN": "Analyze Forecast",
+    "FORCE_OFFLINE": "Force Offline Mode",
+    "SIMULATE_DISRUPTION": "Simulate edge-network disruption triggers",
+    "LOADING": "Querying cluster data nodes and evaluating prediction alerts...",
+    "COMM_ERROR_TITLE": "System Communication Error",
+    "COMM_ERROR_DESC": "Unable to process forecast payload downstream. Verify gateway proxy status.",
+    "STREAM_CONTEXT": "Data Stream Context:",
+    "FORECAST_RUN": "Forecast Run for:",
+    "HIGH": "High",
+    "LOW": "Low",
+    "RULE_ENGINE_ALERTS": "Rule Engine Alerts",
+    "CLEAR_CONDITIONS": "Clear atmospheric conditions predicted.",
+    "SERVICE_NOT_AVAILABLE": "Service not available"
+  },
+  "ALERTS": {
+    "TEMPERATURE_RULE": "Use sunscreen lotion.",
+    "THUNDERSTROM_RULE": "Don’t step out! A Storm is brewing!",
+    "WIND_RULE": "It’s too windy, watch out!",
+    "RAIN_RULE": "Carry umbrella"
+  },
+  "NOTES": {
+    "CITY_NOT_FOUND": "City '{{city}}' not found in OpenWeather database.",
+    "WEATHER_SERVICE_DOWN": "Weather service is down.",
+    "CACHE_DATA": "Offline Mode / Fallback Active: Serving last successfully cached data.",
+    "LIVE_DATA": "Live Production Data Stream"
+  }
+}

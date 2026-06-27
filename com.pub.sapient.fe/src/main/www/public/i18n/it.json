@@ -1,0 +1,32 @@
+{
+  "DASHBOARD": {
+    "TITLE": "Dashboard Allerte Meteo e Previsioni a 3 Giorni",
+    "TARGET_CITY": "Città di Destinazione",
+    "SEARCH_PLACEHOLDER": "es. Londra, Pune, New York",
+    "ANALYZE_BTN": "Analizza Previsioni",
+    "FORCE_OFFLINE": "Forza Modalità Offline",
+    "SIMULATE_DISRUPTION": "Simula interruzioni della rete edge",
+    "LOADING": "Interrogazione dei nodi dati del cluster e valutazione degli avvisi...",
+    "COMM_ERROR_TITLE": "Errore di Comunicazione del Sistema",
+    "COMM_ERROR_DESC": "Impossibile elaborare i dati di previsione a valle. Verificare lo stato del proxy del gateway.",
+    "STREAM_CONTEXT": "Contesto del flusso di dati:",
+    "FORECAST_RUN": "Previsioni per:",
+    "HIGH": "Massima",
+    "LOW": "Minima",
+    "RULE_ENGINE_ALERTS": "Avvisi del Motore di Regole",
+    "CLEAR_CONDITIONS": "Previste condizioni atmosferiche serene.",
+    "SERVICE_NOT_AVAILABLE": "Servizio non disponibile"
+  },
+  "ALERTS": {
+    "TEMPERATURE_RULE": "Usa la lozione solare.",
+    "THUNDERSTROM_RULE": "Non uscire! Si sta preparando una tempesta!",
+    "WIND_RULE": "C'è troppo vento, fai attenzione!",
+    "RAIN_RULE": "Porta l'ombrello"
+  },
+  "NOTES": {
+    "CITY_NOT_FOUND": "Città '{{city}}' non trovata nel database di OpenWeather.",
+    "WEATHER_SERVICE_DOWN": "Il servizio meteo non è disponibile.",
+    "CACHE_DATA": "Modalità offline / Fallback attivo: vengono mostrati gli ultimi dati memorizzati nella cache con successo.",
+    "LIVE_DATA": "Flusso di dati di produzione in tempo reale"
+  }
+}

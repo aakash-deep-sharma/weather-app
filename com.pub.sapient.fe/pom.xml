@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>com.pub.sapient.fe</artifactId>
+	<name>com.pub.sapient.fe</name>
+	<description>Weather Web Application</description>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>com.pub.sapient</groupId>
+		<artifactId>com.pub.sapient</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/www/dist/www/browser</directory>
+				<targetPath>static/web</targetPath>
+			</resource>
+		</resources>
+	</build>
+	<profiles>
+		<profile>
+			<id>npm</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>target/frontend</directory>
+						<targetPath>static/web</targetPath>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>npm install (initialize)</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>initialize</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>run-script</argument>
+										<!-- <argument>${npm-install-args}</argument> -->
+										<argument>install-force</argument>
+										<argument>--loglevel=verbose</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>npm config list (validate)</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>validate</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>config</argument>
+										<argument>list</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>npm run build (compile)</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>generate-resources</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>run-script</argument>
+										<argument>build</argument>
+										<!-- Temporarily replace ${npm-build-args} -->
+    									<argument>--prod</argument>
+    									<argument>--configuration=local</argument>
+    									<argument>--</argument>
+            							<argument>--base-href=/web/</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<workingDirectory>src/main/www</workingDirectory>
+							<environmentVariables>
+								<NPM_CONFIG_PREFIX>${project.basedir}/npm</NPM_CONFIG_PREFIX>
+								<NPM_CONFIG_CACHE>${project.basedir}/npm/cache</NPM_CONFIG_CACHE>
+								<NPM_CONFIG_TMP>${project.build.directory}/npm/tmp</NPM_CONFIG_TMP>
+							</environmentVariables>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

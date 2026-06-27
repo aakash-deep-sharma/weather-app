@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: publicissapient
+
+weather:
+  api:
+    key: ${OPENWEATHER_API_KEY:e4b35f5360ad47afee8acab7e6154e78}
+    base-url: https://api.openweathermap.org
+    endpoints:
+      forecast: /data/2.5/forecast
+
+resilience4j:
+  # 1. Retry Configuration
+  retry:
+    instances:
+      openWeatherRetry:
+        maxAttempts: 3                      # Total number of attempts (1 initial call + 2 retries)
+        waitDuration: 2s                    # Fixed wait duration between retry attempts
+        enableExponentialBackoff: true      # Activates variable/increasing time wait gaps
+        exponentialBackoffMultiplier: 2     # Multiplies the previous wait duration by 2 each time
+        exponentialMaxWaitDuration: 10s
+        ignoreExceptions:
+          - feign.FeignException$NotFound
+        retryExceptions:
+          - feign.FeignException
+
+circuitbreaker:
+    instances:
+      openWeatherApi:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50           # Trip if 50% of last 10 calls fail
+        waitDurationInOpenState: 15s       # Keep circuit open for 15s before trying again
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        ignoreExceptions:
+          - feign.FeignException$NotFound  # Don't trip the breaker just because a user typed a wrong city name

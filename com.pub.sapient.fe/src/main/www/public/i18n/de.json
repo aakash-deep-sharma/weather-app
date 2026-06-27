@@ -1,0 +1,32 @@
+{
+  "DASHBOARD": {
+    "TITLE": "Wetterwarnungen & 3-Tage-Vorhersage-Dashboard",
+    "TARGET_CITY": "Zielstadt",
+    "SEARCH_PLACEHOLDER": "z.B. London, Pune, New York",
+    "ANALYZE_BTN": "Vorhersage analysieren",
+    "FORCE_OFFLINE": "Offline-Modus erzwingen",
+    "SIMULATE_DISRUPTION": "Disruptionen im Edge-Netzwerk simulieren",
+    "LOADING": "Abfragen von Cluster-Datenknoten und Auswerten von Vorhersagewarnungen...",
+    "COMM_ERROR_TITLE": "Systemkommunikationsfehler",
+    "COMM_ERROR_DESC": "Die Vorhersagedaten konnten nicht verarbeitet werden. Überprüfen Sie den Gateway-Proxy-Status.",
+    "STREAM_CONTEXT": "Datenstrom-Kontext:",
+    "FORECAST_RUN": "Vorhersage für:",
+    "HIGH": "Hoch",
+    "LOW": "Tief",
+    "RULE_ENGINE_ALERTS": "Regel-Engine-Warnungen",
+    "CLEAR_CONDITIONS": "Klare atmosphärische Bedingungen vorhergesagt.",
+    "SERVICE_NOT_AVAILABLE": "Dienst nicht verfügbar"
+  },
+  "ALERTS": {
+    "TEMPERATURE_RULE": "Sonnencreme verwenden.",
+    "THUNDERSTROM_RULE": "Geh nicht raus! Ein Sturm zieht auf!",
+    "WIND_RULE": "Es ist zu windig, pass auf!",
+    "RAIN_RULE": "Regenschirm mitnehmen"
+  },
+  "NOTES": {
+    "CITY_NOT_FOUND": "Stadt '{{city}}' in der OpenWeather-Datenbank nicht gefunden.",
+    "WEATHER_SERVICE_DOWN": "Wetterdienst ist nicht verfügbar.",
+    "CACHE_DATA": "Offline-Modus / Fallback aktiv: Zuletzt erfolgreich zwischengespeicherte Daten werden bereitgestellt.",
+    "LIVE_DATA": "Live-Produktionsdatenstrom"
+  }
+}

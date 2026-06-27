@@ -1,0 +1,104 @@
+<div class="dashboard-container">
+    <header class="dashboard-header">
+        <h1>{{ 'DASHBOARD.TITLE' | translate }}</h1>
+        
+        <div class="language-dropdown-container">
+            <select #langSelect [value]="weatherTranslation.translate.currentLang()" 
+            (change)="weatherTranslation.switchLanguage(langSelect.value)" class="lang-dropdown">
+                <option value="en" selected>English (EN)</option>
+                <option value="de">Deutsch (DE)</option>
+                <option value="it">Italiano (IT)</option>
+                <option value="hi">हिन्दी (HI)</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="controls-card">
+        <div class="search-box">
+            <label for="cityInput">{{ 'DASHBOARD.TARGET_CITY' | translate }}</label>
+            <div class="input-wrapper">
+                <input #cityInput id="cityInput" type="text" [placeholder]="'DASHBOARD.SEARCH_PLACEHOLDER' | translate"
+                    (keyup.enter)="store.updateCity(cityInput.value)" />
+                <button (click)="store.updateCity(cityInput.value)">{{ 'DASHBOARD.ANALYZE_BTN' | translate }}</button>
+            </div>
+        </div>
+
+        <div class="toggle-box">
+            <label class="switch-container">
+                <input type="checkbox" [checked]="store.offlineMode()" (change)="store.toggleOfflineMode()" />
+                <span class="slider"></span>
+            </label>
+            <div class="toggle-label">
+                <span class="main-label">{{ 'DASHBOARD.FORCE_OFFLINE' | translate }}</span>
+            </div>
+        </div>
+    </div>
+
+    @if (store.weatherResource.isLoading()) {
+    <div class="status-message loading">
+        <div class="spinner"></div>
+        <p>{{ 'DASHBOARD.LOADING' | translate }}</p>
+    </div>
+    }
+
+    @if (store.weatherResource.error()) {
+    <div class="status-message error-box">
+        <h3>{{ 'DASHBOARD.COMM_ERROR_TITLE' | translate }}</h3>
+        <p>{{ 'DASHBOARD.COMM_ERROR_DESC' | translate }}</p>
+    </div>
+    }
+
+    @if (store.weatherResource.value(); as weatherData) {
+
+        @if(weatherData.dataCode.includes('DATA_FOUND')){
+        <div class="results-container">
+            <div class="stream-banner"
+                [ngClass]="{'fallback-active': store.offlineMode() || weatherData.notes.includes('Offline')}">
+                <span class="pulse-icon"></span>
+                <p><strong>{{ 'DASHBOARD.STREAM_CONTEXT' | translate }}</strong> {{ 'NOTES.'+weatherData.notes | translate  }}</p>
+            </div>
+            <h2 class="city-title">{{ 'DASHBOARD.FORECAST_RUN' | translate }} <span>{{ weatherData.city }}</span></h2>
+            <div class="forecast-grid">
+                @for (day of weatherData.forecasts; track day.date) {
+                <div class="forecast-card">
+                    <div class="card-header">
+                        <h3>{{ day.date }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="temp-metric high">
+                            <span class="label">{{ 'DASHBOARD.HIGH' | translate }}</span>
+                            <span class="value">{{ day.maxTemp }}°C</span>
+                        </div>
+                        <div class="temp-metric low">
+                            <span class="label">{{ 'DASHBOARD.LOW' | translate }}</span>
+                            <span class="value">{{ day.minTemp }}°C</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <h4>{{ 'DASHBOARD.RULE_ENGINE_ALERTS' | translate }}</h4>
+                        @if (day.alerts.length > 0) {
+                        <div class="alerts-list">
+                            @for (alert of day.alerts; track alert) {
+                            <span class="alert-badge" [ngClass]="getAlertClass(alert)">
+                                {{ 'ALERTS.'+alert | translate}}
+                            </span>
+                            }
+                        </div>
+                        } @else {
+                        <p class="no-alerts">{{ 'DASHBOARD.CLEAR_CONDITIONS' | translate }}</p>
+                        }
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        } @else {
+        <div class="status-message error-box">
+            <h3>{{ 'DASHBOARD.SERVICE_NOT_AVAILABLE' | translate }}</h3>
+            <p>{{ 'NOTES.'+weatherData.notes | translate: {city: weatherData.city} }}</p>
+        </div>
+        }
+
+    }
+</div>
