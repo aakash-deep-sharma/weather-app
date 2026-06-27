@@ -31,6 +31,8 @@ public class WeatherService {
 
 	@Value("${weather.api.key}")
 	private String API_KEY;
+	@Value("${weather.api.endpoints.result-count}")
+	private String apiResultCount;
 	private final List<WeatherRule> weatherRules;
 	private final OpenWeatherClient openWeatherClient;
 	private final CacheManager cacheManager;
@@ -52,7 +54,8 @@ public class WeatherService {
 			throw new RuntimeException("Force offline mode active");
 		}
 
-		OpenWeatherPayload payload = openWeatherClient.fetch3DayForecast(city, API_KEY, 20);
+		OpenWeatherPayload payload = openWeatherClient.fetch3DayForecast(city, API_KEY,
+				Integer.valueOf(this.apiResultCount));
 		if (payload == null || payload.getList() == null) {
 			log.warn("Open weather return empty payload.");
 			throw new RuntimeException("Empty response from Weather API");
