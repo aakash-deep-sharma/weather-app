@@ -2,7 +2,7 @@
   "DASHBOARD": {
     "TITLE": "Wetterwarnungen & 3-Tage-Vorhersage-Dashboard",
     "TARGET_CITY": "Zielstadt",
-    "SEARCH_PLACEHOLDER": "z.B. London, Pune, New York",
+    "SEARCH_PLACEHOLDER": "z.B. Ajmer, Pune, New York",
     "ANALYZE_BTN": "Vorhersage analysieren",
     "FORCE_OFFLINE": "Offline-Modus erzwingen",
     "SIMULATE_DISRUPTION": "Disruptionen im Edge-Netzwerk simulieren",
