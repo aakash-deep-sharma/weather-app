@@ -2,7 +2,7 @@
   "DASHBOARD": {
     "TITLE": "मौसम अलर्ट और 3-दिवसीय पूर्वानुमान डैशबोर्ड",
     "TARGET_CITY": "लक्षित गंतव्य शहर",
-    "SEARCH_PLACEHOLDER": "जैसे, लंदन, पुणे, न्यूयॉर्क",
+    "SEARCH_PLACEHOLDER": "जैसे: Ajmer, Pune, New York",
     "ANALYZE_BTN": "पूर्वानुमान का विश्लेषण करें",
     "FORCE_OFFLINE": "ऑफलाइन मोड बाध्य करें",
     "SIMULATE_DISRUPTION": "एज-नेटवर्क व्यवधान ट्रिगर्स का अनुकरण करें",
