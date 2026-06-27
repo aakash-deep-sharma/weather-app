@@ -2,7 +2,7 @@
   "DASHBOARD": {
     "TITLE": "Dashboard Allerte Meteo e Previsioni a 3 Giorni",
     "TARGET_CITY": "Città di Destinazione",
-    "SEARCH_PLACEHOLDER": "es. Londra, Pune, New York",
+    "SEARCH_PLACEHOLDER": "es. Ajmer, Pune, New York",
     "ANALYZE_BTN": "Analizza Previsioni",
     "FORCE_OFFLINE": "Forza Modalità Offline",
     "SIMULATE_DISRUPTION": "Simula interruzioni della rete edge",
