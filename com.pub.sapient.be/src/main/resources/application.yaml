@@ -8,6 +8,8 @@ weather:
     base-url: https://api.openweathermap.org
     endpoints:
       forecast: /data/2.5/forecast
+      result-count: 20
+
 
 resilience4j:
   # 1. Retry Configuration
