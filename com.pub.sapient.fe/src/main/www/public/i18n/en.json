@@ -2,7 +2,7 @@
   "DASHBOARD": {
     "TITLE": "Weather Alerts & 3-Day Prediction Dashboard",
     "TARGET_CITY": "Target Destination City",
-    "SEARCH_PLACEHOLDER": "e.g., London, Pune, New York",
+    "SEARCH_PLACEHOLDER": "e.g., Ajmer, Pune, New York",
     "ANALYZE_BTN": "Analyze Forecast",
     "FORCE_OFFLINE": "Force Offline Mode",
     "SIMULATE_DISRUPTION": "Simulate edge-network disruption triggers",
