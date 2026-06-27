@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  publicissapient-service:
+    # Use the same image repository and tag format from your pom.xml
+    image: aakashdeepsharma/weatherapp:0.0.1-SNAPSHOT
+    container_name: weatherapp-brk
+    ports:
+      - "8080:8080"
+    environment:
+      # 1. Passes JVM args into your entrypoint's $JAVA_OPTS variable
+      - JAVA_OPTS=-Xms512m -Xmx512m
+      
+      # 2. Maps the OpenWeather API Key into Spring Boot environment syntax
+      - WEATHER_API_KEY=${OPENWEATHER_API_KEY}
+    volumes:
+      # Optional: Maps your local directory to container log volume if needed
+      - ./logs:/logs
+    restart: unless-stopped
