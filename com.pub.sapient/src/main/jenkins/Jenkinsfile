@@ -30,7 +30,7 @@ pipeline{
 						echo "Cleaning work space"
 				        cleanWs()
 				        MAVEN_PROFILE = '-Pdocker'
-						SERVICES_TO_DEPLOY= 'weatherapp-service'
+						SERVICES_TO_DEPLOY= 'weather-app'
                     }
                 }
         }
@@ -44,7 +44,7 @@ pipeline{
                 				doGenerateSubmoduleConfigurations: false,
                 				extensions                       : [],
                 				submoduleCfg                     : [],
-                				userRemoteConfigs                : [[credentialsId: 'git-user', url: "https://github.com/aakash-deep-sharma/assignment"]],
+                				userRemoteConfigs                : [[credentialsId: 'git-user', url: "https://github.com/aakash-deep-sharma/weather-app"]],
                 				extensions                       : [[$class: 'LocalBranch', localBranch: 'main']]
         			])
 				}
@@ -83,6 +83,8 @@ pipeline{
 						        java -version
 							    javac -version
 	        					export PATH=$MVN_CMD_DIR:$PATH
+	        					mvn clean install -f sources/com.pub.sapient/pom.xml
+	        					mvn clean install -f sources/com.pub.sapient.fe/pom.xml
 	        					mvn clean deploy ${MAVEN_PROFILE} -f sources/com.pub.sapient.be/pom.xml
 						    """
 					    }
