@@ -1,0 +1,70 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+**/target/**
+
+# IDE - Eclipse and STS
+.project
+.classpath
+**/..npmrc
+**/.Data-h2.sql
+**/.classpath
+**/.factorypath
+**/.gitkeep
+**/.module-generator/**
+**/..mvn/**
+**/.node_module
+**/.node_module/**
+**/.settings
+**/.settings/**
+**/..springBeans
+**/module-generator
+**/static
+**/static/**
+**/target
+**/target/**
+**/.git/*
+*/classpath
+**/.angular
+**/.angular/**
+**/dist
+**/dist/**
+**/e2e
+**/e2e/**
+.factorypath
+.git
+.project
+.settings
+.springBeans
+
+**/.settings/**
+.factorypath
+
+**/*.iml
+**/node_modules
+**/node_modules/
+
+**/package-lock.json
+**/.temp**
+
+**/npm
+**/npm/**
