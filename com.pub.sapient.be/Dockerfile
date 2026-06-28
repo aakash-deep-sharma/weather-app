@@ -5,7 +5,7 @@ ARG DOCKER_BASE_IMAGE_TAG
 FROM ${DOCKER_BASE_IMAGE}:${DOCKER_BASE_IMAGE_TAG} as builder
 
 ARG JAR_FILE
-COPY $JAR_FILE /app.jar
+COPY ${JAR_FILE} /app.jar
 
 RUN java -Djarmode=layertools -jar app.jar extract
 
@@ -46,4 +46,4 @@ USER $DOCKER_BASE_USER
 
 EXPOSE 8080
 
-ENTRYPOINT [ "sh", "-c", "/entrypoint.sh" ]
+ENTRYPOINT [ "sh", "/entrypoint.sh" ]

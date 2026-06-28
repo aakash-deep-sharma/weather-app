@@ -6,10 +6,11 @@
 	<name>com.pub.sapient.fe</name>
 	<description>Weather Web Application</description>
 	<packaging>jar</packaging>
+	
 	<parent>
 		<groupId>com.pub.sapient</groupId>
 		<artifactId>com.pub.sapient</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<build>

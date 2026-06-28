@@ -1,10 +1,9 @@
 version: '3.8'
 
 services:
-  publicissapient-service:
+  weather-app:
     # Use the same image repository and tag format from your pom.xml
-    image: aakashdeepsharma/weatherapp:0.0.1-SNAPSHOT
-    container_name: weatherapp-brk
+    image: aakashdeepsharma/weather-app:1.0.0
     ports:
       - "8080:8080"
     environment:
@@ -17,3 +16,10 @@ services:
       # Optional: Maps your local directory to container log volume if needed
       - ./logs:/logs
     restart: unless-stopped
+    healthcheck:
+      test: "curl --max-time 5 --fail --silent http://localhost:8080/actuator/health | grep \\\"status\\\":\\\"UP\\\" || exit 1"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    entrypoint: "/entrypoint.sh"

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.pub.sapient</groupId>
 	<artifactId>com.pub.sapient</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,17 +15,19 @@
 	<properties>
 		<java.version>21</java.version>
 		<spring-cloud.version>2025.0.3</spring-cloud.version>
-		<dockerfile-maven-plugin-version>1.4.13</dockerfile-maven-plugin-version>
+		
 		<docker-repo>aakashdeepsharma/weather-app</docker-repo>
-		<docker-registry>https://hub.docker.com</docker-registry>
+		<docker-maven-plugin.version>0.46.0</docker-maven-plugin.version>
+		<docker.image.prefix>aakashdeepsharma</docker.image.prefix>
+		<docker.image.name>weather-app</docker.image.name>
 		<docker-base-image>eclipse-temurin</docker-base-image>
 		<docker-base-image-tag>21-jre-jammy</docker-base-image-tag>
 		<docker-root-user>root</docker-root-user>
 		<docker-base-user>root</docker-base-user>
-		<docker-skip-push>false</docker-skip-push>
-		<docker-skip-build>false</docker-skip-build>
+		
 		<node.version>v22.22.2</node.version>
 		<npm.version>11.17.0</npm.version>
+		
 	</properties>
 	<dependencyManagement>
 		<dependencies>

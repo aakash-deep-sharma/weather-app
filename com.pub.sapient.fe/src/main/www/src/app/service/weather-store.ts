@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment';
 })
 export class WeatherStore {
 
-  //readonly apiBase = 'http://localhost:8080/api';
   readonly apiBase = environment.apiBase;
 
   // 1. Core Reactive State Drivers (Writable Signals)
