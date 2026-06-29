@@ -203,3 +203,47 @@ input:checked + .slider:before { transform: translateX(24px); }
     }
   }
 }
+
+/* HATEOAS State Action Warning Banner */
+.warning-box.state-action-banner {
+  border-left: 5px solid #dd6b20; /* Warm warning orange/amber color */
+  background-color: #fffaf0; /* Light cream background */
+  color: #dd6b20;
+  text-align: left;
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+}
+
+.state-action-banner p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #7b341e; /* Darker amber for readability */
+  flex: 1;
+  min-width: 250px;
+}
+
+.state-action-banner p strong {
+  color: #dd6b20;
+}
+
+.state-action-banner button {
+  background: #dd6b20;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.state-action-banner button:hover {
+  background: #c05621; /* Slightly darker orange on hover */
+}

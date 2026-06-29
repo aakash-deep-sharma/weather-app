@@ -15,7 +15,10 @@
     "LOW": "न्यूनतम",
     "RULE_ENGINE_ALERTS": "नियम इंजन अलर्ट",
     "CLEAR_CONDITIONS": "साफ मौसम की भविष्यवाणी की गई है।",
-    "SERVICE_NOT_AVAILABLE": "सेवा उपलब्ध नहीं है"
+    "SERVICE_NOT_AVAILABLE": "सेवा उपलब्ध नहीं है",
+    "HEURISTIC_TRIGGER": "सिस्टम सूचना:",
+    "SWITCH_TO_OFFLINE": "ऑफ़लाइन रणनीति लागू करें",
+    "TRIGGER_MESSAGE": "गंभीर मौसम की स्थिति का पता चला है। इस पेलोड रिसोर्स के माध्यम से एक कैश्ड (cached) ऑफ़लाइन दृश्य उपलब्ध है।"
   },
   "ALERTS": {
     "TEMPERATURE_RULE": "सनस्क्रीन लोशन का प्रयोग करें।",

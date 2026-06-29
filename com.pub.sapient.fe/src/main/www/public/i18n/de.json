@@ -15,7 +15,10 @@
     "LOW": "Tief",
     "RULE_ENGINE_ALERTS": "Regel-Engine-Warnungen",
     "CLEAR_CONDITIONS": "Klare atmosphärische Bedingungen vorhergesagt.",
-    "SERVICE_NOT_AVAILABLE": "Dienst nicht verfügbar"
+    "SERVICE_NOT_AVAILABLE": "Dienst nicht verfügbar",
+    "HEURISTIC_TRIGGER": "Systemhinweis:",
+  "SWITCH_TO_OFFLINE": "Offline-Strategie erzwingen",
+  "TRIGGER_MESSAGE": "Kritische Bedingungen erkannt. Eine im Cache gespeicherte Offline-Ansicht ist über diese Payload-Ressource verfügbar."
   },
   "ALERTS": {
     "TEMPERATURE_RULE": "Sonnencreme verwenden.",

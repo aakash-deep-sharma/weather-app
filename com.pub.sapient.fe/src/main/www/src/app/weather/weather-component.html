@@ -34,6 +34,18 @@
         </div>
     </div>
 
+    @if (store.emergencyLink()) {
+        <div class="status-message warning-box state-action-banner">
+            <p>
+                <strong>{{ 'DASHBOARD.HEURISTIC_TRIGGER' | translate }}</strong> 
+                {{ 'DASHBOARD.TRIGGER_MESSAGE' | translate}}
+            </p>
+            <button  (click)="store.toggleOfflineMode()">
+                {{ 'DASHBOARD.SWITCH_TO_OFFLINE' | translate }}
+            </button>
+        </div>
+    }
+
     @if (store.weatherResource.isLoading()) {
     <div class="status-message loading">
         <div class="spinner"></div>

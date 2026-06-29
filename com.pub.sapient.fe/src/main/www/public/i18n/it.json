@@ -15,7 +15,10 @@
     "LOW": "Minima",
     "RULE_ENGINE_ALERTS": "Avvisi del Motore di Regole",
     "CLEAR_CONDITIONS": "Previste condizioni atmosferiche serene.",
-    "SERVICE_NOT_AVAILABLE": "Servizio non disponibile"
+    "SERVICE_NOT_AVAILABLE": "Servizio non disponibile",
+    "HEURISTIC_TRIGGER": "Avviso di Sistema:",
+    "SWITCH_TO_OFFLINE": "Applica Strategia Offline",
+    "TRIGGER_MESSAGE": "Rilevate condizioni critiche. Una visualizzazione offline memorizzata nella cache è disponibile tramite questa risorsa."
   },
   "ALERTS": {
     "TEMPERATURE_RULE": "Usa la lozione solare.",

@@ -15,7 +15,10 @@
     "LOW": "Low",
     "RULE_ENGINE_ALERTS": "Rule Engine Alerts",
     "CLEAR_CONDITIONS": "Clear atmospheric conditions predicted.",
-    "SERVICE_NOT_AVAILABLE": "Service not available"
+    "SERVICE_NOT_AVAILABLE": "Service not available",
+    "HEURISTIC_TRIGGER":"System Notice:",
+    "SWITCH_TO_OFFLINE":"Enforce Offline Strategy",
+    "TRIGGER_MESSAGE":"Severe conditions detected. A cached offline execution view is available via this payload resource."
   },
   "ALERTS": {
     "TEMPERATURE_RULE": "Use sunscreen lotion.",
