@@ -3,7 +3,7 @@ version: '3.8'
 services:
   weather-app:
     # Use the same image repository and tag format from your pom.xml
-    image: aakashdeepsharma/weather-app:1.0.0
+    image: aakashdeepsharma/weather-app:latest
     ports:
       - "8080:8080"
     environment:
