@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  weather-app:
+    # Use the same image repository and tag format from your pom.xml
+    image: aakashdeepsharma/weather-app:1.0.0
+    ports:
+      - "8080:8080"
+    environment:
+      # 1. Passes JVM args into your entrypoint's $JAVA_OPTS variable
+      - JAVA_OPTS=-Xms512m -Xmx512m
+      
+      # 2. Maps the OpenWeather API Key into Spring Boot environment syntax
+      - WEATHER_API_KEY=${OPENWEATHER_API_KEY}
+    volumes:
+      # Optional: Maps your local directory to container log volume if needed
+      - ./logs:/logs
+    restart: unless-stopped
+    healthcheck:
+      test: "curl --max-time 5 --fail --silent http://localhost:8080/actuator/health | grep \\\"status\\\":\\\"UP\\\" || exit 1"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    entrypoint: "/entrypoint.sh"
