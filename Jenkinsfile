@@ -27,7 +27,7 @@ pipeline {
         stage('Checkout Source') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github-creds',
+                    credentialsId: 'github',
                     url: 'https://github.com/aakash-deep-sharma/weather-app.git'
             }
         }
