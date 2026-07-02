@@ -18,7 +18,6 @@ export interface WeatherResponseDto {
   city: string;
   notes: string;
   forecasts: WeatherForecastDto[];
-  dataCode: string;
   // HATEOAS links wrapper
   _links?: HateoasLinks; 
 }

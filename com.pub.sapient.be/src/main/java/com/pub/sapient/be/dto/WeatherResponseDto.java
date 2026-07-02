@@ -9,16 +9,14 @@ public class WeatherResponseDto extends RepresentationModel<WeatherResponseDto> 
 	private String city;
 	private String notes;
 	private List<WeatherForecastDto> forecasts;
-	private String dataCode;
 
 	public WeatherResponseDto() {
 	}
 
-	public WeatherResponseDto(String city, String notes, List<WeatherForecastDto> forecasts, String dataCode) {
+	public WeatherResponseDto(String city, String notes, List<WeatherForecastDto> forecasts) {
 		this.city = city;
 		this.notes = notes;
 		this.forecasts = forecasts;
-		this.dataCode = dataCode;
 	}
 
 	public String getCity() {
@@ -45,32 +43,31 @@ public class WeatherResponseDto extends RepresentationModel<WeatherResponseDto> 
 		this.forecasts = forecasts;
 	}
 
-	public String getDataCode() {
-		return dataCode;
-	}
-
-	public void setDataCode(String dataCode) {
-		this.dataCode = dataCode;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		if (!super.equals(o)) {
-			return false; // Important: includes Spring HATEOAS links comparison
-		}
-		WeatherResponseDto that = (WeatherResponseDto) o;
-		return Objects.equals(city, that.city) && Objects.equals(notes, that.notes)
-				&& Objects.equals(forecasts, that.forecasts) && Objects.equals(dataCode, that.dataCode);
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), city, notes, forecasts, dataCode);
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(city, forecasts, notes);
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		WeatherResponseDto other = (WeatherResponseDto) obj;
+		return Objects.equals(city, other.city) && Objects.equals(forecasts, other.forecasts)
+				&& Objects.equals(notes, other.notes);
+	}
+
 }

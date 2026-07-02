@@ -2,12 +2,17 @@ package com.pub.sapient.be.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OpenWeatherPayload {
 
+	@JsonIgnore
+	private String dataCode;
+	@JsonIgnore
+	private String city;
 	private List<ForecastData> list;
 
 	public List<ForecastData> getList() {
@@ -16,6 +21,22 @@ public class OpenWeatherPayload {
 
 	public void setList(List<ForecastData> list) {
 		this.list = list;
+	}
+
+	public String getDataCode() {
+		return dataCode;
+	}
+
+	public void setDataCode(String dataCode) {
+		this.dataCode = dataCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	@JsonIgnoreProperties(ignoreUnknown = true)

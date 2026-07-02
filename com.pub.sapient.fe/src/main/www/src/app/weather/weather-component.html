@@ -23,15 +23,18 @@
             </div>
         </div>
 
-        <div class="toggle-box">
-            <label class="switch-container">
-                <input type="checkbox" [checked]="store.offlineMode()" (change)="store.toggleOfflineMode()" />
-                <span class="slider"></span>
-            </label>
-            <div class="toggle-label">
-                <span class="main-label">{{ 'DASHBOARD.FORCE_OFFLINE' | translate }}</span>
+       
+            <div class="toggle-box">
+                <label class="switch-container">
+                    <input type="checkbox" [checked]="store.offlineMode()" (change)="store.toggleOfflineMode()" />
+                    <span class="slider"></span>
+                </label>
+                <div class="toggle-label">
+                    <span class="main-label">{{ 'DASHBOARD.FORCE_OFFLINE' | translate }}</span>
+                </div>
             </div>
-        </div>
+        
+        
     </div>
 
     @if (store.emergencyLink()) {
@@ -62,7 +65,7 @@
 
     @if (store.weatherResource.value(); as weatherData) {
 
-        @if(weatherData.dataCode.includes('DATA_FOUND')){
+        @if(weatherData.notes.includes('LIVE_DATA') || weatherData.notes.includes('CACHE_DATA')) {
         <div class="results-container">
             <div class="stream-banner"
                 [ngClass]="{'fallback-active': store.offlineMode() || weatherData.notes.includes('Offline')}">

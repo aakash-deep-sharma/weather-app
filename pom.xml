@@ -1,0 +1,12 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.pub.sapient</groupId>
+	<artifactId>com.pub.sapient</artifactId>
+	<version>1.0.3-SNAPSHOT</version>
+    <packaging>pom</packaging> 
+	<modules>
+		<module>com.pub.sapient</module> 
+		<module>com.pub.sapient.fe</module> 
+        <module>com.pub.sapient.be</module>
+	</modules>
+</project>
