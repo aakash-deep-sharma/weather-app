@@ -9,7 +9,6 @@ import com.pub.sapient.be.client.OpenWeatherClient;
 import com.pub.sapient.be.model.OpenWeatherPayload;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.github.resilience4j.retry.annotation.Retry;
 
 @Service
 public class WeatherClientService {
@@ -33,21 +32,15 @@ public class WeatherClientService {
 		this.cacheService = cacheService;
 	}
 
-	@Retry(name = "openWeatherRetry")
 	@CircuitBreaker(name = "openWeatherApi", fallbackMethod = "fallbackWeatherData")
-	public OpenWeatherPayload fetchForecast(String city, boolean offlineMode) {
-		if (offlineMode) {
-			log.warn("Running offline mode.");
-			throw new RuntimeException("Force offline mode active.");
-		}
+	public OpenWeatherPayload fetchForecast(String city) {
 		OpenWeatherPayload response = openWeatherClient.fetch3DayForecast(city, apiKey,
 				Integer.valueOf(apiResultCount));
 		response.setDataCode(LIVE_DATA);
-		cacheService.put(city, response);
 		return response;
 	}
 
-	public OpenWeatherPayload fallbackWeatherData(String city, boolean offlineMode, Throwable t) {
+	public OpenWeatherPayload fallbackWeatherData(String city, Throwable t) {
 
 		log.warn("Circuit Breaker / Retry triggered fallback for city: {} due to: {}", city, t.getMessage());
 		if (t instanceof feign.FeignException.NotFound || t.getCause() instanceof feign.FeignException.NotFound) {

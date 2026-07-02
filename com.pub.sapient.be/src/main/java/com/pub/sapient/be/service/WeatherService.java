@@ -24,15 +24,26 @@ public class WeatherService {
 	private final List<WeatherRule> weatherRules;
 
 	private final WeatherClientService clientService;
+	private final WeatherCacheService cacheService;
 
-	public WeatherService(WeatherClientService clientService, List<WeatherRule> weatherRules) {
+	public WeatherService(WeatherClientService clientService, WeatherCacheService cacheService,
+			List<WeatherRule> weatherRules) {
 		this.clientService = clientService;
 		this.weatherRules = weatherRules;
+		this.cacheService = cacheService;
 	}
 
 	public WeatherResponseDto get3DayForecast(String city, boolean offlineMode) {
+		if (offlineMode) {
+			OpenWeatherPayload cachedPayload = this.cacheService.get(city);
+			if (cachedPayload != null) {
+				log.warn("Offline mode active returning cached data for city: {}", city);
+				cachedPayload.setDataCode(this.clientService.CACHE_DATA);
+				return processPayload(city, cachedPayload, cachedPayload.getDataCode());
+			}
+		}
 
-		OpenWeatherPayload response = this.clientService.fetchForecast(city, offlineMode);
+		OpenWeatherPayload response = this.clientService.fetchForecast(city);
 
 		return processPayload(city, response, response.getDataCode());
 	}
@@ -43,6 +54,7 @@ public class WeatherService {
 			return new WeatherResponseDto(city, sourceNote, List.of());
 		}
 
+		log.info("Processing data for city: {}", city);
 		Map<String, List<ForecastData>> groupedByDay = payload.getList().stream()
 				.collect(Collectors.groupingBy(data -> data.getDtTxt().split(" ")[0]));
 
